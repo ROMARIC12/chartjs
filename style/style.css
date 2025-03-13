@@ -1,0 +1,100 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1030;
+    height: 60px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.navbar-collapse {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+body {
+    padding-top: 60px; /* Pour éviter que le contenu soit caché sous la navbar */
+}
+
+
+
+
+
+.table-container {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.table th {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+}
+.table-hover tbody tr:hover {
+    background-color: #e9ecef;
+}
+.icon {
+    font-size: 1.2rem;
+}
+
+.section-container {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.section-title {
+    color: #007bff;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.accordion-button {
+    font-weight: bold;
+}
+.icon {
+    color: #64717e;
+    margin-right: 10px;
+}
+
+.conclusion-container {
+    color: black;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+.conclusion-container:hover {
+    transform: scale(1.03);
+}
+.conclusion-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.conclusion-text {
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+.icon-container {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+.btn-more {
+    margin-top: 20px;
+    background-color: white;
+    font-weight: bold;
+    border-radius: 30px;
+    padding: 10px 20px;
+    transition: 0.3s ease-in-out;
+}
+.btn-more:hover {
+    color: white;
+}

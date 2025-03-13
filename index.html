@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ChartJs</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <!-- En-tête -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">ChartJS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section principale -->
+    <div class="container mt-5">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <img src="/img/chartjs.png" class="img-fluid" alt="Graph example">
+            </div>
+            <div class="col-md-6">
+                <h2>Chartjs</h2>
+                <p>est une bibliothèque JavaScript open-source permettant de créer des graphiques interactifs et dynamiques pour le web. 
+                    Elle est appréciée pour sa simplicité d’utilisation et sa légèreté.
+                    Elle est souvent utilisé pour afficher des statistiques, des tendances ou des comparaisons sous forme de graphiques à barres, 
+                    quelques lignes de code suffisent pour ajouter un graphique dans une page web.
+                </p>
+                <ul>
+                    <h2>Fonctionalité</h2>
+                    <li>Créer divers <a href="#">graphiques</a>.</li>
+                    <p>
+                        Chart.js permet de créer des graphiques à barres, en lignes, en radar, en bulles, etc.
+                    </p>
+                    <li>Rendre les figures <a href="#"> facilement Personnalisable ce qui est difficile avec le JS classique</a>.</li>
+                    <p>
+                        Possibilité de modifier les couleurs, les styles, les légendes et d'ajouter des animations pour rendre les graphiques plus attractifs.
+                    </p>
+
+                    <li>Personnaliser le <a href="#">style et la mise en page</a>.</li>
+                </ul>
+                <button class="btn btn-primary">Doc oficielle du Chart.js</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Comment inclure et utiliser Chart.js</h2>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h4 class="card-title">1. Inclure Chart.js</h4>
+                <p class="card-text">Pour utiliser Chart.js, ajoutez ce lien dans votre fichier HTML :</p>
+                <pre class="bg-light p-2 rounded"><code>&lt;script src="https://cdn.jsdelivr.net/npm/chart.js"&gt;&lt;/script&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h4 class="card-title">2. Ajouter un canevas pour le graphique</h4>
+                <p class="card-text">Créez un élément &lt;canvas&gt; dans votre HTML où le graphique sera affiché :</p>
+                <p><b>L'élément &lt;canvas&gt;</b> est une zone de dessin sur une page web. Il permet de créer des graphiques, des animations, des jeux, et bien d'autres choses, directement dans le navigateur
+                    <p>
+                        <b>Utilisation de JavaScript :</b> Pour dessiner sur un canvas, on utilise des fonctions JavaScript qui permettent de tracer des formes, des lignes, des images, et de manipuler les pixels <br>
+                        <b>Applications variées :</b> Le canvas est utilisé pour créer des graphiques interactifs, des jeux en ligne, des outils de dessin, et pour afficher des données de manière visuelle <br>
+                        <b>Technologie HTML5 :</b> L'élément canvas fait partie des nouveautés apportées par HTML5, ce qui lui confère une large compatibilité avec les navigateurs modernes.
+                    </p>
+                    
+                    pour l'utiliser il s'uffit de l'appeler dans notre HTML comme ceux-ci
+                </p>
+                <pre class="bg-light p-2 rounded"><code>&lt;canvas id="myChart" width="400" height="200"&gt;&lt;/canvas&gt;</code></pre>
+                <b>NB:</b> tous ce qui est à l'interieur de la balise &lt;canvas&gt; sera considerer par le navigateur comme une zone graphique verifier bien ce que vous mettez dedans
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h4 class="card-title">3. Créer un graphique en JavaScript</h4>
+                <p class="card-text">Ajoutez ce script pour initialiser un graphique en barres :</p>
+                <pre class="bg-light p-2 rounded"><code>const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai'],
+        datasets: [{
+            label: 'Ventes',
+            data: [12, 19, 3, 5, 2],
+            backgroundColor: 'rgba(54, 162, 235, 0.5)'
+        }]
+    }
+});</code></pre>
+            </div>
+        </div>
+
+        <button id="afficherGraphique" class="btn btn-primary">Afficher le graphique</button>
+        <div id="graphiqueContainer" style="display: none;">
+            <canvas id="myChart" width="600" height="300"></canvas>
+            <div class="mt-3">
+                <label for="couleurGraphique">Couleur du graphique :</label>
+                <input type="color" id="couleurGraphique" value="#36a2eb">
+            </div>
+        </div>
+
+    </div>
+
+    <h2 class="text-center mb-4">Exemple de graphique réalisable</h2>
+
+    <!-- Section des ressources avec Chart.js -->
+    <div class="container mt-5 text-center">
+        <div class="row">
+            <div class="col-md-3">
+                <canvas id="chart1"></canvas>
+                <p>Bar Chart</p>
+            </div>
+            <div class="col-md-3">
+                <canvas id="chart2"></canvas>
+                <p>Line Chart</p>
+            </div>
+            <div class="col-md-3">
+                <canvas id="chart3"></canvas>
+                <p>Pie Chart</p>
+            </div>
+            <div class="col-md-3">
+                <canvas id="chart4"></canvas>
+                <p>Doughnut Chart</p>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="text-center mb-4">Plateforme d'apprentissage</h2>
+    <div class="container mt-5">
+        <div class="row align-items-center">
+            <div class="col-md-4 text-center">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="img/téléchargement.png" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title text-center">YOUTUBE</h5>
+                      <a href="#" class="btn btn-primary text-center">Visitez le site</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="img/gpt.png" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title text-center">CHATGPT</h5>
+                      <a href="#" class="btn btn-primary">Visitez le site</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="img/images (2).png" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title text-center"><b>YOUTUBE</b></h5>
+                      <a href="#" class="btn btn-primary text-center">Visitez le site</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <h2 class="text-center mb-4"></h2>
+
+    <div class="container">
+        <div class="row">
+            <!-- Section News -->
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Avantage</h5>
+                        <p>
+                            <b>Facilité d'utilisation</b> <br>– Chart.js est simple à configurer et à utiliser grâce à une API intuitive 
+                            <b>Design attractif</b> <br> – Il produit des graphiques modernes et responsifs avec un rendu fluide en Canvas <br>
+                            <b>Personnalisation poussée</b> <br> – Supporte de nombreuses options pour modifier les couleurs, les styles et les animations <br>
+                            <b>Léger et performant</b> <br> – Plus léger que certaines bibliothèques concurrentes comme D3.js, ce qui le rend efficace pour des projets web <br>
+                            <b>Bon support et documentation</b> <br>– Dispose d'une documentation détaillée et d'une large communauté <br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Inconvenients</h5>
+                        <p>
+                            <b>Limitations pour les gros volumes de données</b> <br> – Chart.js peut ralentir lorsqu'il traite de grandes quantités de données en raison de son rendu basé sur Canvas <br>
+                            <b>Moins flexible que D3.js</b> <br> – Contrairement à D3.js, il ne permet pas une manipulation avancée des données et des visualisations interactives complexes <br>
+                            <b>Dépendance à JavaScript</b> <br> – Chart.js fonctionne uniquement avec JavaScript, ce qui peut être un frein pour certains environnements back-end <br>
+                            <b>Support limité pour les graphiques 3D</b> <br> – Il ne prend pas en charge les visualisations en 3D, contrairement à certaines bibliothèques plus avancées <br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="text-center mb-4">Compatibilité </h2>
+
+    <h3 class="text-center mb-4">ChartJs est compatible avec d'autre framwork comme :</h3>
+    <div class="container mt-5">
+        <div class="row align-items-center">
+            <div class="col-md-4 text-center">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="img/node.png" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title text-center">NODE JS</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="img/react.png" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title text-center">React JS</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="img/vu.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title text-center"><b>VU JS</b></h5>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+
+    <h2 class="text-center mb-4"></h2>
+
+    <div class="container">
+        <div class="row">
+            <!-- Section News -->
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Avec React.js et Node js</h5>
+                        <p>
+                            Utilisez npm pour installer Chart.js : <br>
+                            <ul><li><code>npm install chart.js </code></li></ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Avec VuJs</h5>
+                        <p>
+                            <p>
+                                Utilisez npm pour installer Chart.js : <br>
+                                <ul><li><code>npm install chart.js vue-chartjs</code></li></ul>
+                            </p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="text-center mb-4"> Alternative</h2>
+    <h3 class="text-center mb-4">Il existe plusieurs bibliothèques </h3>
+    <div class="container mt-5">
+        <div class="row align-items-center">
+            <div class="col-md-4 text-center">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="img/d3.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title text-center">D3.js</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="img/ech.png" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title text-center">ECharts </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="img/plt.png" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title text-center"><b>Plotly.js</h5>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <h2 class="text-center mb-4"></h2>
+
+    <div class="container">
+        <div class="row">
+            <!-- Section News -->
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">D3.js – Le plus puissant actuellement</h5>
+                        <p>
+                            <ul><li>Caracteristiques</li></ul>
+                            <div>
+                                Basé sur SVG, HTML et CSS, contrairement à Chart.js qui utilise Canvas.
+                                Ultra-flexible : permet de créer des visualisations complexes et interactives.
+                                Adapté aux grands ensembles de données, grâce à des optimisations avancées.
+                            </div>
+                        </p>
+
+                        <p>
+                            <ul><li>Avantages</li></ul>
+                            <div>
+                                <div>
+                                    Excellentes performances sur les gros volumes de données <br>
+                                    Grande communauté et nombreuses ressources <br>
+                                </div>
+
+                            </div>
+                        </p>
+
+                        <p>
+                            <ul><li>Prerequis</li></ul>
+                            <div>
+                                Courbe d'apprentissage plus élevée que Chart.js <br>
+                                Nécessite plus de code pour générer des graphiques simples <br>
+                                Deconseillé pour les debutants <br>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Plotly.js</h5>
+
+                        <p>
+                            <ul><li>Caracteristiques</li></ul>
+                            <div>
+                                Conçu pour les scientifiques et analystes de données <br>
+                                Basé sur D3.js, permettant des graphiques 2D et 3D interactifs <br>
+                                Existe aussi en version Python, R ect <br>
+                            </div>
+                        </p>
+
+                        <p>
+                            <ul><li>Avantages</li></ul>
+                            <div>
+                                Idéal pour des visualisations scientifiques avancées <br>
+                                Très bon pour les données volumineuses grâce à WebGL <br>
+                                Interface interactive par défaut (zoom, clics, survols) <br>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="text-center mb-4">Comment faire le bon choix</h2>
+
+    <div class="container mt-4">
+        <div class="table-container">
+            <h2 class="text-center mb-3">Comparatif des bibliothèques de graphiques en vogue en ce moment</h2>
+            <table class="table table-hover text-center">
+                <thead>
+                    <tr>
+                        <th>Bibliothèque</th>
+                        <th>Simplicité</th>
+                        <th>Interactivité</th>
+                        <th>Performance</th>
+                        <th>Usage idéal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Chart.js</strong></td>
+                        <td>⭐⭐⭐⭐</td>
+                        <td>⭐⭐⭐</td>
+                        <td>⭐⭐⭐</td>
+                        <td>Projets web simples et légers</td>
+                    </tr>
+                    <tr>
+                        <td><strong>D3.js</strong></td>
+                        <td>⭐⭐</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                        <td>⭐⭐⭐⭐</td>
+                        <td>Visualisations avancées, big data</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ECharts</strong></td>
+                        <td>⭐⭐⭐</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                        <td>⭐⭐⭐⭐</td>
+                        <td>Dashboards interactifs, visualisation 3D</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Highcharts</strong></td>
+                        <td>⭐⭐⭐⭐</td>
+                        <td>⭐⭐⭐⭐</td>
+                        <td>⭐⭐⭐</td>
+                        <td>Usage commercial, support premium</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Plotly.js</strong></td>
+                        <td>⭐⭐⭐</td>
+                        <td>⭐⭐⭐⭐</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                        <td>Data science, graphiques scientifiques</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Google Charts</strong></td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                        <td>⭐⭐⭐</td>
+                        <td>⭐⭐⭐</td>
+                        <td>Rapports et intégration Google</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <h2 class="text-center mb-4"> </h2>
+    <h2 class="text-center mb-4">Exemple de projet </h2>
+    <section>
+        <div class="container p-4 shadow-sm bg-white rounded">
+            <h2 class="mb-3">Égaliseur de Musique</h2>
+        </div>
+        <div class="container p-4 shadow-sm bg-white rounded">
+            <h2 class="mb-3">Dashbord personalisé</h2>
+        </div>
+        <div class="container p-4 shadow-sm bg-white rounded">
+            <h2 class="mb-3">Outil d'analyse de donnée en ligne</h2>
+        </div>
+    </section>
+
+    <h2 class="text-center mb-4"></h2>
+
+    <div class="container mt-4">
+        <div class="section-container">
+            <h2 class="section-title">Bonnes Pratiques & Optimisation</h2>
+    
+            <div class="accordion" id="accordionExample">
+                <!-- Optimisation des performances -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                            <i class="fas fa-rocket icon"></i> A. Optimisation des performances
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul class="list-group">
+                                <li class="list-group-item"><i class="fas fa-check-circle text-success"></i> Chargement conditionnel des graphiques pour éviter une surcharge des ressources.</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle text-success"></i> Utilisation du lazy loading pour afficher les graphiques uniquement quand ils sont visibles à l’écran.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Accessibilité et compatibilité -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                            <i class="fas fa-universal-access icon"></i> B. Accessibilité et compatibilité
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul class="list-group">
+                                <li class="list-group-item"><i class="fas fa-check-circle text-success"></i> Vérification de la compatibilité avec les navigateurs.</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle text-success"></i> Ajout de descriptions pour améliorer l’accessibilité aux personnes en situation de handicap.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="conclusion-container">
+            <div class="icon-container">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <h2 class="conclusion-title"> Conclusion</h2>
+            <p class="conclusion-text">
+                Chart.js est une solution simple, efficace et puissante pour la visualisation de données. 
+                Son intégration facile avec d’autres technologies en fait un outil incontournable pour les 
+                développeurs souhaitant enrichir leurs applications avec des graphiques interactifs.
+            </p>
+        </div>
+    </div>
+
+    <!-- Pied de page -->
+    <footer class="text-center mt-5 py-3 bg-light">
+        <p>Groupe A</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
